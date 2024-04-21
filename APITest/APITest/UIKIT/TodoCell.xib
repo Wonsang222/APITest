@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TodoCell" rowHeight="124" id="MU2-Cv-6sZ" customClass="TodoCell" customModule="APITest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="124"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MU2-Cv-6sZ" id="YrQ-aN-AlV">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="todo ID: 01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3i5-ug-axd">
+                        <rect key="frame" x="13" y="9.9999999999999982" width="82" height="20.333333333333329"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="할일 내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTF-pE-w1Z">
+                        <rect key="frame" x="13" y="50.333333333333343" width="230" height="63.666666666666657"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Mkd-V8-HFk">
+                        <rect key="frame" x="253" y="10" width="120" height="34.333333333333336"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w8W-9o-EQ1">
+                                <rect key="frame" x="0.0" y="0.0" width="55" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="수정"/>
+                                <connections>
+                                    <action selector="onEditButtonClicked:" destination="MU2-Cv-6sZ" eventType="touchUpInside" id="hNz-rU-5RL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nnl-wt-Me7">
+                                <rect key="frame" x="65" y="0.0" width="55" height="34.333333333333336"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="삭제"/>
+                                <connections>
+                                    <action selector="onDeleteButtonClicked:" destination="MU2-Cv-6sZ" eventType="touchUpInside" id="f3u-ig-EWT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="Ax1-b5-lOb"/>
+                        </constraints>
+                    </stackView>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-oP-xHG">
+                        <rect key="frame" x="324" y="60" width="51" height="31"/>
+                    </switch>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="HTF-pE-w1Z" secondAttribute="bottom" constant="10" id="052-3O-7bi"/>
+                    <constraint firstAttribute="trailing" secondItem="Mkd-V8-HFk" secondAttribute="trailing" constant="20" symbolic="YES" id="3NC-Bx-zfW"/>
+                    <constraint firstItem="Mkd-V8-HFk" firstAttribute="leading" secondItem="HTF-pE-w1Z" secondAttribute="trailing" constant="10" id="5hz-e9-OEY"/>
+                    <constraint firstItem="HTF-pE-w1Z" firstAttribute="leading" secondItem="3i5-ug-axd" secondAttribute="leading" id="CQ9-3D-U65"/>
+                    <constraint firstItem="HTF-pE-w1Z" firstAttribute="top" secondItem="3i5-ug-axd" secondAttribute="bottom" constant="20" id="EPN-FP-moc"/>
+                    <constraint firstItem="4gW-oP-xHG" firstAttribute="trailing" secondItem="nnl-wt-Me7" secondAttribute="trailing" id="PyV-v5-7Hn"/>
+                    <constraint firstItem="3i5-ug-axd" firstAttribute="leading" secondItem="YrQ-aN-AlV" secondAttribute="leading" constant="13" id="dRf-MT-SKF"/>
+                    <constraint firstItem="3i5-ug-axd" firstAttribute="top" secondItem="YrQ-aN-AlV" secondAttribute="top" constant="10" id="it7-Ic-oH9"/>
+                    <constraint firstItem="4gW-oP-xHG" firstAttribute="top" secondItem="nnl-wt-Me7" secondAttribute="bottom" constant="15.666666666666664" id="kZx-HJ-vI2"/>
+                    <constraint firstItem="Mkd-V8-HFk" firstAttribute="top" secondItem="3i5-ug-axd" secondAttribute="top" id="wxx-57-5UR"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="contentLabel" destination="HTF-pE-w1Z" id="2od-nm-ubR"/>
+                <outlet property="selectionSwitch" destination="4gW-oP-xHG" id="MDE-3t-0QT"/>
+                <outlet property="titleLabel" destination="3i5-ug-axd" id="QGt-ed-gZa"/>
+            </connections>
+            <point key="canvasLocation" x="500" y="-66.901408450704224"/>
+        </tableViewCell>
+    </objects>
+</document>
