@@ -21,7 +21,7 @@ struct BaseListResponse<T: Codable>: Decodable {
 }
 
 struct BaseResponse<T: Codable>: Decodable {
-    let data: T
+    let data: T?
     let message: String?
 }
 

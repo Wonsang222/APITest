@@ -7,57 +7,55 @@
 
 import Foundation
 import MultipartForm
+import RxSwift
+import RxCocoa
 
 extension TodosAPI {
-    static func fetchTodos(page: Int = 1, completion: @escaping (Result<BaseListResponse<Todo>, APIError>) -> Void) {
+    static func fetchTodosWithObservable(page: Int = 1) -> Observable<(Result<BaseListResponse<Todo>, APIError>)> {
+        
         let urlString = baseURL + "todos" + "?page=\(page)"
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
         urlRequest.addValue("application/json", forHTTPHeaderField: "accept")
         
-        URLSession.shared.dataTask(with: urlRequest) { data, resp, err in
-            
-            if let error = err {
-                return completion(.failure(.unknown(error)))
-            }
-        
-            guard let httpResponse = resp as? HTTPURLResponse else {
-                return completion(.failure(.unknown(nil)))
-            }
-            
-            switch httpResponse.statusCode {
-            case 401:
-                return completion(.failure(.unauthorized))
-            default:
-                print(123)
-            }
-            
-            if !(200...299).contains(httpResponse.statusCode) {
-                return completion(.failure(.badStatus(code: httpResponse.statusCode)))
-            }
-        
-            if let jasonData = data {
+        return URLSession.shared.rx.response(request: urlRequest)
+            .map { resp, data in
+                
+                guard let httpResponse = resp as? HTTPURLResponse else {
+                    return .failure(.unknown(nil))
+                }
+                
+                switch httpResponse.statusCode {
+                case 401:
+                    return .failure(.unauthorized)
+                default:
+                    print(123)
+                }
+                
+                if !(200...299).contains(httpResponse.statusCode) {
+                    return .failure(.badStatus(code: httpResponse.statusCode))
+                }
+                
                 do {
-                    let topLevelModel = try JSONDecoder().decode(BaseListResponse<Todo>.self, from: jasonData)
+                    let topLevelModel = try JSONDecoder().decode(BaseListResponse<Todo>.self, from: data)
                     let modelObject = topLevelModel.data
                     
                     // 상태코드는 200인데 파싱한 데이터에 따라 에러처리
                     guard let todos = modelObject,
                           !todos.isEmpty else {
-                        return completion(.failure(.noContent))
+                        return .failure(.noContent)
                     }
                     
-                    completion(.success(topLevelModel))
+                    return .success(topLevelModel)
                     
                 } catch {
-                    completion(.failure(APIError.decodingError))
+                    return .failure(APIError.decodingError)
                 }
             }
-        }.resume()
     }
     
-    static func fetchATodo(id: Int, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
+    static func fetchATodoWithObservable(id: Int, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
         let urlString = baseURL + "todos" + "/\(id)"
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
@@ -100,7 +98,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func searchTodos(searchTerm: String, page: Int = 1, completion: @escaping (Result<BaseListResponse<Todo>, APIError>) -> Void) {
+    static func searchTodosWithObservable(searchTerm: String, page: Int = 1, completion: @escaping (Result<BaseListResponse<Todo>, APIError>) -> Void) {
 
         var urlComponents = URLComponents(string: baseURL + "/todos/search")!
         urlComponents.queryItems = [
@@ -157,7 +155,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func addATodo(title: String, isDone:Bool = false, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
+    static func addATodoWithObservable(title: String, isDone:Bool = false, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
         let urlString = baseURL + "todos"
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
@@ -209,7 +207,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func addATodoJson(title: String, isDone:Bool = false, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
+    static func addATodoJsonWithObservable(title: String, isDone:Bool = false, completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
         let urlString = baseURL + "todos-json"
         let url = URL(string: urlString)!
         var urlRequest = URLRequest(url: url)
@@ -259,7 +257,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func editTodoJson(id: Int,
+    static func editTodoJsonWithObservable(id: Int,
                              title: String,
                              isDone:Bool = false,
                              completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
@@ -312,7 +310,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func editTodo(id: Int,
+    static func editTodoWithObservable(id: Int,
                              title: String,
                              isDone:Bool = false,
                              completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
@@ -367,7 +365,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func deleteATodo(id: Int,
+    static func deleteATodoWithObservable(id: Int,
                              completion: @escaping (Result<BaseResponse<Todo>, APIError>) -> Void) {
         let urlString = baseURL + "todos-json/\(id)"
         let url = URL(string: urlString)!
@@ -411,7 +409,7 @@ extension TodosAPI {
         }.resume()
     }
     
-    static func addATodoAndFetchTodos(title: String,
+    static func addATodoAndFetchTodosWithObservable(title: String,
                                             isDone: Bool,
                                       completion: @escaping  (Result<BaseListResponse<Todo>, APIError>) -> Void) {
         self.addATodo(title: title) { result in
@@ -431,7 +429,7 @@ extension TodosAPI {
         }
     }
     // api 동시처리, 선택된 것들 일괄삭제 api 요청, completion-> 삭제 된 것들
-    static func deleteSelectedTodos(selectedTodoIds: [Int], completion: @escaping ([Int]) -> Void) {
+    static func deleteSelectedTodosWithObservable(selectedTodoIds: [Int], completion: @escaping ([Int]) -> Void) {
         let group = DispatchGroup()
         
         // 성공적인 삭제
@@ -458,7 +456,7 @@ extension TodosAPI {
     }
     
     // 선택된 할일 가져오기, 에러 났을때 completion
-    static func fetchSelectedTodos(selectedTodoIds: [Int], completion: @escaping (Result<[Todo], APIError>) -> Void) {
+    static func fetchSelectedTodosWithObservable(selectedTodoIds: [Int], completion: @escaping (Result<[Todo], APIError>) -> Void) {
         let group = DispatchGroup()
         
         // 성공적인 삭제
@@ -495,3 +493,4 @@ extension TodosAPI {
         }
     }
 }
+
