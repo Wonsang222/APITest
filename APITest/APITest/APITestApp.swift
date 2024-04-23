@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct APITestApp: App {
+    
+    @StateObject var todosVM: TodosVM = TodosVM()
+    
     var body: some Scene {
         WindowGroup {
             TabView {

@@ -9,6 +9,13 @@
 /* Begin PBXBuildFile section */
 		C1264CA32BD5688400560C66 /* TodoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1264CA22BD5688400560C66 /* TodoCell.xib */; };
 		C1264CA52BD56D4700560C66 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CA42BD56D4700560C66 /* TodoCell.swift */; };
+		C1264CA82BD5FBC800560C66 /* TodosAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CA72BD5FBC800560C66 /* TodosAPI.swift */; };
+		C1264CAB2BD628FB00560C66 /* TodosVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CAA2BD628FB00560C66 /* TodosVM.swift */; };
+		C1264CAE2BD62E0900560C66 /* TodosResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CAD2BD62E0900560C66 /* TodosResponse.swift */; };
+		C1264CB12BD660A200560C66 /* URL + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CB02BD660A200560C66 /* URL + ext.swift */; };
+		C1264CB42BD6720500560C66 /* MultipartForm in Frameworks */ = {isa = PBXBuildFile; productRef = C1264CB32BD6720500560C66 /* MultipartForm */; };
+		C1264CB62BD6865F00560C66 /* URLRequest + Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CB52BD6865F00560C66 /* URLRequest + Ext.swift */; };
+		C1264CB82BD69ABD00560C66 /* TodosAPI + Closure.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CB72BD69ABD00560C66 /* TodosAPI + Closure.swift */; };
 		C13D7A702BD52D4500EEEA1E /* APITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D7A6F2BD52D4500EEEA1E /* APITestApp.swift */; };
 		C13D7A722BD52D4500EEEA1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D7A712BD52D4500EEEA1E /* ContentView.swift */; };
 		C13D7A742BD52D4600EEEA1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13D7A732BD52D4600EEEA1E /* Assets.xcassets */; };
@@ -40,6 +47,12 @@
 /* Begin PBXFileReference section */
 		C1264CA22BD5688400560C66 /* TodoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoCell.xib; sourceTree = "<group>"; };
 		C1264CA42BD56D4700560C66 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
+		C1264CA72BD5FBC800560C66 /* TodosAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosAPI.swift; sourceTree = "<group>"; };
+		C1264CAA2BD628FB00560C66 /* TodosVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosVM.swift; sourceTree = "<group>"; };
+		C1264CAD2BD62E0900560C66 /* TodosResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodosResponse.swift; sourceTree = "<group>"; };
+		C1264CB02BD660A200560C66 /* URL + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL + ext.swift"; sourceTree = "<group>"; };
+		C1264CB52BD6865F00560C66 /* URLRequest + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest + Ext.swift"; sourceTree = "<group>"; };
+		C1264CB72BD69ABD00560C66 /* TodosAPI + Closure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI + Closure.swift"; sourceTree = "<group>"; };
 		C13D7A6C2BD52D4500EEEA1E /* APITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13D7A6F2BD52D4500EEEA1E /* APITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestApp.swift; sourceTree = "<group>"; };
 		C13D7A712BD52D4500EEEA1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1264CB42BD6720500560C66 /* MultipartForm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +93,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C1264CA62BD5FBBB00560C66 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				C1264CA72BD5FBC800560C66 /* TodosAPI.swift */,
+				C1264CB72BD69ABD00560C66 /* TodosAPI + Closure.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		C1264CA92BD628EF00560C66 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+				C1264CAA2BD628FB00560C66 /* TodosVM.swift */,
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		C1264CAC2BD62E0200560C66 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C1264CAD2BD62E0900560C66 /* TodosResponse.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C1264CAF2BD6609900560C66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				C1264CB02BD660A200560C66 /* URL + ext.swift */,
+				C1264CB52BD6865F00560C66 /* URLRequest + Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C13D7A632BD52D4500EEEA1E = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +150,10 @@
 		C13D7A6E2BD52D4500EEEA1E /* APITest */ = {
 			isa = PBXGroup;
 			children = (
+				C1264CAF2BD6609900560C66 /* Extensions */,
+				C1264CAC2BD62E0200560C66 /* Data */,
+				C1264CA62BD5FBBB00560C66 /* API */,
+				C1264CA92BD628EF00560C66 /* VM */,
 				C13D7A992BD5307000EEEA1E /* UIKIT */,
 				C13D7A6F2BD52D4500EEEA1E /* APITestApp.swift */,
 				C13D7A712BD52D4500EEEA1E /* ContentView.swift */,
@@ -163,6 +215,9 @@
 			dependencies = (
 			);
 			name = APITest;
+			packageProductDependencies = (
+				C1264CB32BD6720500560C66 /* MultipartForm */,
+			);
 			productName = APITest;
 			productReference = C13D7A6C2BD52D4500EEEA1E /* APITest.app */;
 			productType = "com.apple.product-type.application";
@@ -235,6 +290,9 @@
 				Base,
 			);
 			mainGroup = C13D7A632BD52D4500EEEA1E;
+			packageReferences = (
+				C1264CB22BD66FA300560C66 /* XCRemoteSwiftPackageReference "MultipartForm" */,
+			);
 			productRefGroup = C13D7A6D2BD52D4500EEEA1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -280,8 +338,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C13D7A722BD52D4500EEEA1E /* ContentView.swift in Sources */,
+				C1264CB12BD660A200560C66 /* URL + ext.swift in Sources */,
 				C13D7A9D2BD5309900EEEA1E /* MainVC.swift in Sources */,
+				C1264CA82BD5FBC800560C66 /* TodosAPI.swift in Sources */,
+				C1264CAE2BD62E0900560C66 /* TodosResponse.swift in Sources */,
+				C1264CB62BD6865F00560C66 /* URLRequest + Ext.swift in Sources */,
+				C1264CB82BD69ABD00560C66 /* TodosAPI + Closure.swift in Sources */,
 				C13D7A702BD52D4500EEEA1E /* APITestApp.swift in Sources */,
+				C1264CAB2BD628FB00560C66 /* TodosVM.swift in Sources */,
 				C1264CA52BD56D4700560C66 /* TodoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -614,6 +678,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C1264CB22BD66FA300560C66 /* XCRemoteSwiftPackageReference "MultipartForm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davbeck/MultipartForm";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C1264CB32BD6720500560C66 /* MultipartForm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C1264CB22BD66FA300560C66 /* XCRemoteSwiftPackageReference "MultipartForm" */;
+			productName = MultipartForm;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C13D7A642BD52D4500EEEA1E /* Project object */;
 }
