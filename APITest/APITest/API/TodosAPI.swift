@@ -9,7 +9,6 @@ import Foundation
 import MultipartForm
 
 enum TodosAPI {
-    static let baseURL = "https://phplaravel-574671-2962113.cloudwaysapps.com/api/v2/"
     
     enum APIError: Error {
         case noContent
