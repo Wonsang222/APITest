@@ -20,6 +20,7 @@
 		C1264CBD2BD7E6B800560C66 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = C1264CBC2BD7E6B800560C66 /* RxRelay */; };
 		C1264CBF2BD7E6B800560C66 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C1264CBE2BD7E6B800560C66 /* RxSwift */; };
 		C1264CC12BD7E71600560C66 /* TodosAPI + RX.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264CC02BD7E71600560C66 /* TodosAPI + RX.swift */; };
+		C1264D332BDD0C8D00560C66 /* TodosAPI + Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1264D322BDD0C8D00560C66 /* TodosAPI + Combine.swift */; };
 		C13D7A702BD52D4500EEEA1E /* APITestApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D7A6F2BD52D4500EEEA1E /* APITestApp.swift */; };
 		C13D7A722BD52D4500EEEA1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13D7A712BD52D4500EEEA1E /* ContentView.swift */; };
 		C13D7A742BD52D4600EEEA1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C13D7A732BD52D4600EEEA1E /* Assets.xcassets */; };
@@ -58,6 +59,7 @@
 		C1264CB52BD6865F00560C66 /* URLRequest + Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLRequest + Ext.swift"; sourceTree = "<group>"; };
 		C1264CB72BD69ABD00560C66 /* TodosAPI + Closure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI + Closure.swift"; sourceTree = "<group>"; };
 		C1264CC02BD7E71600560C66 /* TodosAPI + RX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI + RX.swift"; sourceTree = "<group>"; };
+		C1264D322BDD0C8D00560C66 /* TodosAPI + Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TodosAPI + Combine.swift"; sourceTree = "<group>"; };
 		C13D7A6C2BD52D4500EEEA1E /* APITest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APITest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C13D7A6F2BD52D4500EEEA1E /* APITestApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITestApp.swift; sourceTree = "<group>"; };
 		C13D7A712BD52D4500EEEA1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C1264CA72BD5FBC800560C66 /* TodosAPI.swift */,
+				C1264D322BDD0C8D00560C66 /* TodosAPI + Combine.swift */,
 				C1264CB72BD69ABD00560C66 /* TodosAPI + Closure.swift */,
 				C1264CC02BD7E71600560C66 /* TodosAPI + RX.swift */,
 			);
@@ -356,6 +359,7 @@
 				C1264CA82BD5FBC800560C66 /* TodosAPI.swift in Sources */,
 				C1264CC12BD7E71600560C66 /* TodosAPI + RX.swift in Sources */,
 				C1264CAE2BD62E0900560C66 /* TodosResponse.swift in Sources */,
+				C1264D332BDD0C8D00560C66 /* TodosAPI + Combine.swift in Sources */,
 				C1264CB62BD6865F00560C66 /* URLRequest + Ext.swift in Sources */,
 				C1264CB82BD69ABD00560C66 /* TodosAPI + Closure.swift in Sources */,
 				C13D7A702BD52D4500EEEA1E /* APITestApp.swift in Sources */,

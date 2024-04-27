@@ -426,6 +426,6 @@ extension TodosAPI {
                 .catchAndReturn(nil)
         }
         return Observable.merge(apiCall)
-            .compactMap { $0 }
+            .compactMap { $0 } 
     }
 }
